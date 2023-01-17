@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\project;
+use App\Models\environment;
+use App\Models\Deployment;
 use Illuminate\Http\Request;
-use app\Models\project;
-use app\Models\environment;
-use app\Models\deployment;
+
 
 class mainController extends Controller
 {
     public function addProject()
     {
         $project = new project();
-        $project->name ="Hotel Management";
+        $project->name ="Expense Manager";
         $project->save();
         return "Project Add Successfully";
     }
@@ -20,16 +20,16 @@ class mainController extends Controller
     {
         $project = project::find($id);
         $environment = new environment();
-        $environment->name = 'JAVA';
-        $project->environmet()->save($id);
-        return 'Project Added Succesfully';
+        $environment->name = 'Android';
+        $project->environment()->save($environment);
+        return 'Environment Added Succesfully';
     }
     public function addDeployment($id)
     {
         $environment = environment::find($id);
-        $deployment = new deployment();
-        $deployment -> commit_hash = 'done';
-        $environment->deployment()->save($id);
-        return 'Deploymenty Add Succesfully';
+        $deployment = new Deployment();
+        $deployment->commit_has= 'undone';
+        $environment->deployment()->save($deployment);
+        return 'Deployment Add Succesfully';
     }
 }

@@ -11,6 +11,6 @@ class project extends Model
     use HasFactory;
     public function environment()
     {
-        return $this->hasMany(environment::class);
+        return $this->hasMany(environment::class,'project_id');
     }
 }
