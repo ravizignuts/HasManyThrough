@@ -32,4 +32,12 @@ class mainController extends Controller
         $environment->deployment()->save($deployment);
         return 'Deployment Add Succesfully';
     }
+    public function showDeployment($id){
+        //show deployments of project id
+        //this is simple and slow method
+        //$deployment = project::find($id)->environment->flatMap->deployment;
+       //this method is using with hasmanythrough method
+       $deployment = project::find($id)->deployments;
+        return $deployment;
+    }
 }

@@ -20,4 +20,5 @@ Route::controller(mainController::class)->group(function(){
     Route::get('addproject','addProject');
     Route::get('addenvironment/{id}','addEnvironment');
     Route::get('adddeployment/{id}','addDeployment');
+    Route::get('showdeployment/{id}','showDeployment');
 });
